@@ -1,10 +1,10 @@
 import { Contact } from '../Contact/Contact';
-export const ContactList = ({ contactsItems }) => {
+export const ContactList = ({ contactsItems, onDelete }) => {
   return (
-    <div>
+    <ul>
       {contactsItems.map(contact => (
-        <Contact key={contact.id} contact={contact} />
+        <Contact key={contact.id} contact={contact} onDelete={onDelete} />
       ))}
-    </div>
+    </ul>
   );
 };

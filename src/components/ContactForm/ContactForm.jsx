@@ -4,7 +4,7 @@ import { useId } from 'react';
 import * as Yup from 'yup';
 
 const FeedbackSchema = Yup.object().shape({
-  username: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('Required'),
+  name: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('Required'),
   number: Yup.string()
     .min(10, 'Number is too short!')
     .max(15, 'Number is too long!')
@@ -12,26 +12,26 @@ const FeedbackSchema = Yup.object().shape({
 });
 
 const initialValues = {
-  username: '',
+  name: '',
   number: '',
 };
 export const ContactForm = ({ onAdd }) => {
   const textId = useId();
   const numberId = useId();
-  const hendleSubmit = (evt, values, actions) => {
+  const hendleSubmit = (values, actions) => {
     console.log(values);
-    onAdd(evt.target.elements.username.value);
+    onAdd({ ...values });
     actions.resetForm();
   };
   return (
     <Formik initialValues={initialValues} onSubmit={hendleSubmit} validationSchema={FeedbackSchema}>
       <Form className={css.form}>
         <label htmlFor={textId}>Name</label>
-        <Field type="text" name="username" id={textId} />
-        <ErrorMessage className={css.error} name="username" as="span" />
+        <Field type="text" name="name" id={textId} />
+        <ErrorMessage className={css.error} name="name" as="span" />
 
         <label htmlFor={numberId}>Number</label>
-        <Field type="number" name="number" id={numberId} />
+        <Field type="text" name="number" id={numberId} />
         <ErrorMessage className={css.error} name="number" as="span" />
 
         <button type="submit" className={css.btn}>

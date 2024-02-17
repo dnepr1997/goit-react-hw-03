@@ -1,7 +1,7 @@
 import { IoCall } from 'react-icons/io5';
 import { IoPerson } from 'react-icons/io5';
 import css from './Contact.module.css';
-export const Contact = ({ contact }) => {
+export const Contact = ({ contact, onDelete }) => {
   return (
     <div className={css.contact}>
       <div>
@@ -13,7 +13,9 @@ export const Contact = ({ contact }) => {
           <IoCall /> {contact.number}
         </p>
       </div>
-      <button className={css.btn}>Delete</button>
+      <button className={css.btn} onClick={() => onDelete(contact.id)}>
+        Delete
+      </button>
     </div>
   );
 };
