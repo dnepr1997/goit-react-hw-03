@@ -1,7 +1,7 @@
 import css from './App.module.css';
 import { useState, useEffect } from 'react';
 import { ContactList } from '../ContactList/ContactList';
-import { SearchBar } from '../SearchBar/SearchBar';
+import { SearchBox } from '../SearchBox/SearchBox';
 import { ContactForm } from '../ContactForm/ContactForm';
 import { nanoid } from 'nanoid';
 
@@ -45,7 +45,7 @@ export const App = () => {
     <div className={css.form}>
       <h1>Phonebook</h1>
       <ContactForm onAdd={addUser} />
-      <SearchBar SearchValue={inputValue} SearchOnChange={evt => setInputValue(evt.target.value)} />
+      <SearchBox SearchValue={inputValue} SearchOnChange={evt => setInputValue(evt.target.value)} />
       <ContactList contactsItems={filterSearch} onDelete={deleteUser} />
     </div>
   );

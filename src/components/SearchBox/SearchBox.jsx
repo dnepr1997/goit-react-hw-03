@@ -1,7 +1,7 @@
-import css from './SearchBar.module.css';
+import css from './SearchBox.module.css';
 import { useId } from 'react';
 
-export const SearchBar = ({ SearchValue, SearchOnChange }) => {
+export const SearchBox = ({ SearchValue, SearchOnChange }) => {
   const searchId = useId();
 
   const hendleClick = event => {

@@ -6,8 +6,8 @@ import * as Yup from 'yup';
 const FeedbackSchema = Yup.object().shape({
   name: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('Required'),
   number: Yup.string()
-    .min(10, 'Number is too short!')
-    .max(15, 'Number is too long!')
+    .min(3, 'Number is too short!')
+    .max(50, 'Number is too long!')
     .required('Required'),
 });
 
